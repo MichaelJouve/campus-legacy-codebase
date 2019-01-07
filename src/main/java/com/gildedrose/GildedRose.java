@@ -8,9 +8,7 @@ import java.util.Map;
 public class GildedRose {
     Item[] items;
 
-    public GildedRose(Item[] items) {
-        this.items = items;
-    }
+    public GildedRose(Item[] items) {this.items = items;}
     private Logger logger = LoggerFactory.getLogger(GildedRose.class);
 
     /**
@@ -20,19 +18,26 @@ public class GildedRose {
         try {
             logger.info("Start updateQuality");
 
+            // iterate each items
             for (int i = 0; i < items.length; i++) {
-                ItemAttributs itemAttributs = buildAttributs(items[i]);
+                try {
+                    //Build attributes before using them to change the item values.
+                    ItemAttributs itemAttributs = buildAttributs(items[i]);
 
-                increaseQuality(itemAttributs, i);
-                reduiceQuality(itemAttributs, i);
-                reduiceSellIn(itemAttributs, i);
+                    // functions who change the different value depending on the attributes
+                    increaseQuality(itemAttributs, i);
+                    reduiceQuality(itemAttributs, i);
+                    reduiceSellIn(itemAttributs, i);
+                } catch (Exception error) {
+                    logger.error("fail during iteration", error, this.items[i]);
+                }
             }
         } catch (Exception error) {
-            logger.error("fail during the process", error, this.items);
-
+            logger.error("failed to iterate items", error, "items = : ", this.items);
         }
     }
 
+    // List the different attributes
     public class ItemAttributs {
         int reduiceSellIn =0;
         int reduiceQuality = 0;
@@ -110,9 +115,7 @@ public class GildedRose {
 
         // increase at specific date before the end date (Map)
         if (!itemAttributs.dateQuality.isEmpty()) {
-
            for(Map.Entry<Integer, Integer> entry: itemAttributs.dateQuality.entrySet()){
-
                 if (this.items[i].sellIn <= entry.getKey()) {
                     this.items[i].quality = this.items[i].quality + entry.getValue();
                 }
