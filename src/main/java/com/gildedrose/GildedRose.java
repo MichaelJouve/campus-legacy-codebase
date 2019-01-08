@@ -59,7 +59,7 @@ public class GildedRose {
         itemAttributs.reduiceQuality = 1;
         itemAttributs.reduiceSellIn = 1;
         itemAttributs.atSellInZero = false;
-        itemAttributs.dateQuality.clear();
+        itemAttributs.dateQuality.put(0,-1);
 
         switch (item.name) {
             case "Aged Brie":
@@ -72,6 +72,7 @@ public class GildedRose {
                 itemAttributs.increaseQuality = 1;
                 itemAttributs.reduiceQuality = 0;
                 itemAttributs.reduiceSellIn = 0;
+                itemAttributs.dateQuality.clear();
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
                 itemAttributs.increaseQuality = 1;
@@ -86,7 +87,7 @@ public class GildedRose {
                 itemAttributs.increaseQuality = 0;
                 itemAttributs.reduiceQuality = 2;
                 itemAttributs.reduiceSellIn = 1;
-                itemAttributs.dateQuality.put(-1,-2);
+                itemAttributs.dateQuality.put(0,-2);
                 break;
         }
         logger.info("fin buildAttributes {}", itemAttributs);
