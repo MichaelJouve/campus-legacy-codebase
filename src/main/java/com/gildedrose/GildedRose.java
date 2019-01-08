@@ -29,7 +29,7 @@ public class GildedRose {
                 reduiceQuality(itemAttributs, i);
                 reduiceSellIn(itemAttributs, i);
 
-                logger.error("fail during iteration", this.items[i]);
+                logger.info("End iteration {}", this.items[i]);
             }
     }
 
@@ -89,6 +89,7 @@ public class GildedRose {
                 itemAttributs.dateQuality.put(-1,-2);
                 break;
         }
+        logger.info("fin buildAttributes {}", itemAttributs);
         return itemAttributs ;
     }
 
@@ -104,6 +105,7 @@ public class GildedRose {
         if (itemAttributs.atSellInZero && this.items[i].sellIn <= -1) {
             this.items[i].quality = 0;
         }
+        logger.info("fin reduiceQuality {}", this.items[i]);
     }
 
     private void increaseQuality(ItemAttributs itemAttributs, int i) {
@@ -129,10 +131,12 @@ public class GildedRose {
         if (this.items[i].quality > 50 && !this.items[i].name.contains("Sulfuras")) {
             this.items[i].quality = 50;
         }
+        logger.info("fin increaseQuality {}", this.items[i]);
     }
 
     private void reduiceSellIn(ItemAttributs intemAttributs, int i) {
         this.items[i].sellIn = this.items[i].sellIn - intemAttributs.reduiceSellIn;
+        logger.info("fin reduiceSellIn {}", this.items[i]);
     }
 
     public Item[] getItems() {
