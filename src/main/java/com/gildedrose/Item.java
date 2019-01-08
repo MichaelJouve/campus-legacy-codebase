@@ -112,7 +112,7 @@ public class Item {
         item.reduiceSellIn = -1;
         item.atSellInZero = true;
         item.dateQuality.put(10,1);
-        item.dateQuality.put(3,1);
+        item.dateQuality.put(5,1);
     }
 
     private void conjuredSetAttributes(Item item) {
