@@ -40,10 +40,10 @@ class GildedRoseTest {
 
     @Test
     void conjuredQualityShouldNotBeNegative2() {
-        Item[] items = new Item[] { new Item("Conjured Mana Cake", -5, 5) };
+        Item[] items = new Item[] { new Item("Conjured Mana Cake", -3, 16) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality).isEqualTo(1);
+        assertThat(app.items[0].quality).isEqualTo(12);
     }
 
     @Test
