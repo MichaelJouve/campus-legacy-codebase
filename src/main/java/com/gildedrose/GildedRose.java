@@ -66,7 +66,7 @@ public class GildedRose {
                 itemAttributs.increaseQuality = 1;
                 itemAttributs.reduiceQuality = 0;
                 itemAttributs.reduiceSellIn = 1;
-                //itemAttributs.dateQuality.put(0,1);
+                itemAttributs.dateQuality.put(0,1);
                 break;
             case "Sulfuras, Hand of Ragnaros":
                 itemAttributs.increaseQuality = 1;
