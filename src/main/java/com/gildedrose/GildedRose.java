@@ -15,7 +15,6 @@ public class GildedRose {
         for (Item item : items) {
             int oldQuality = item.quality;
             int oldSellIn = item.sellIn;
-
             item.buildAttributes(item); //Set product attributes
             item.increaseQuality(item);
             item.reduiceQuality(item);

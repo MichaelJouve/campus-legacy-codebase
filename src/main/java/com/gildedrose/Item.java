@@ -43,18 +43,12 @@ public class Item {
      */
     public void buildAttributes( Item item) {
         switch (item.name) {
-            case "Aged Brie":
-                agedBrieSetAttributes(item);
-                break;
-            case "Sulfuras, Hand of Ragnaros":
-                sulfurasSetAttributes(item);
+            case "Aged Brie": agedBrieSetAttributes(item); break;
+            case "Sulfuras, Hand of Ragnaros": sulfurasSetAttributes(item);
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
-                backstageSetAttributes(item);
-                break;
-            case "Conjured Mana Cake":
-                conjuredSetAttributes(item);
-                break;
+                backstageSetAttributes(item); break;
+            case "Conjured Mana Cake": conjuredSetAttributes(item); break;
         }
     }
 
