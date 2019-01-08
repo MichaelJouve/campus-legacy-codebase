@@ -37,39 +37,23 @@ public class Item {
     }
 
     /**
-     * Use to set the attributes of each products.
+     * Set the attributes of each products.
      * @param item
      * @return
      */
     public void buildAttributes( Item item) {
-
         switch (item.name) {
             case "Aged Brie":
-                item.increaseQuality = 1;
-                item.reduiceQuality = 0;
-                item.reduiceSellIn = -1;
-                item.dateQuality.put(0,1);
+                agedBrieSetAttributes(item);
                 break;
             case "Sulfuras, Hand of Ragnaros":
-                item.increaseQuality = 1;
-                item.reduiceQuality = 0;
-                item.reduiceSellIn = 0;
-                item.dateQuality.clear();
+                sulfurasSetAttributes(item);
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
-                item.increaseQuality = 1;
-                item.reduiceQuality = 0;
-                item.reduiceSellIn = -1;
-                item.atSellInZero = true;
-                item.dateQuality.put(10,1);
-                item.dateQuality.put(3,1);
-
+                backstageSetAttributes(item);
                 break;
             case "Conjured Mana Cake":
-                item.increaseQuality = 0;
-                item.reduiceQuality = -2;
-                item.reduiceSellIn = -1;
-                item.dateQuality.put(-1,-2);
+                conjuredSetAttributes(item);
                 break;
         }
     }
@@ -113,6 +97,35 @@ public class Item {
         {
             item.quality = 50;
         }
+    }
+
+    private void agedBrieSetAttributes(Item item) {
+        item.increaseQuality = 1;
+        item.reduiceQuality = 0;
+        item.reduiceSellIn = -1;
+        item.dateQuality.put(0,1);
+    }
+    private void sulfurasSetAttributes(Item item){
+        item.increaseQuality = 1;
+        item.reduiceQuality = 0;
+        item.reduiceSellIn = 0;
+        item.dateQuality.clear();
+    }
+
+    private void backstageSetAttributes(Item item) {
+        item.increaseQuality = 1;
+        item.reduiceQuality = 0;
+        item.reduiceSellIn = -1;
+        item.atSellInZero = true;
+        item.dateQuality.put(10,1);
+        item.dateQuality.put(3,1);
+    }
+
+    private void conjuredSetAttributes(Item item) {
+        item.increaseQuality = 0;
+        item.reduiceQuality = -2;
+        item.reduiceSellIn = -1;
+        item.dateQuality.put(-1,-2);
     }
 
 }
