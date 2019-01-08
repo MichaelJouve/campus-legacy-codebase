@@ -119,7 +119,7 @@ public class Item {
         item.increaseQuality = 0;
         item.reduiceQuality = -2;
         item.reduiceSellIn = -1;
-        item.dateQuality.put(0,-2);
+        item.dateQuality.put(-1,-1);
     }
 
 }
