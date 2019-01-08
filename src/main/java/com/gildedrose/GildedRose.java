@@ -15,26 +15,22 @@ public class GildedRose {
      * Update quality and reduce sellIn.
      */
     public void updateQuality() {
-        try {
+
             logger.info("Start updateQuality");
 
             // iterate each items
             for (int i = 0; i < items.length; i++) {
-                try {
-                    //Build attributes before using them to change the item values.
-                    ItemAttributs itemAttributs = buildAttributs(items[i]);
 
-                    // functions who change the different value depending on the attributes
-                    increaseQuality(itemAttributs, i);
-                    reduiceQuality(itemAttributs, i);
-                    reduiceSellIn(itemAttributs, i);
-                } catch (Exception error) {
-                    logger.error("fail during iteration", error, this.items[i]);
-                }
+                //Build attributes before using them to change the item values.
+                ItemAttributs itemAttributs = buildAttributs(items[i]);
+
+                // functions who change the different value depending on the attributes
+                increaseQuality(itemAttributs, i);
+                reduiceQuality(itemAttributs, i);
+                reduiceSellIn(itemAttributs, i);
+
+                logger.error("fail during iteration", this.items[i]);
             }
-        } catch (Exception error) {
-            logger.error("failed to iterate items", error, "items = : ", this.items);
-        }
     }
 
     // List the different attributes
