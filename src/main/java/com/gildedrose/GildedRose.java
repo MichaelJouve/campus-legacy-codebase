@@ -13,10 +13,15 @@ public class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            item.decreaseQuality();
             item.sellIn--;
-            if (item.sellIn < 0) {
+            if (item.name.equals("Aged Brie")){
+                item.quality++;
+            }
+            else {
                 item.decreaseQuality();
+                if (item.sellIn < 0) {
+                    item.decreaseQuality();
+                }
             }
         }
     }

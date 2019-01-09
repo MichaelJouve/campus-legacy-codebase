@@ -38,4 +38,12 @@ public class GildedRoseTest {
         gildedRose.updateQuality();
         assertThat(item.quality).isEqualTo(8);
     }
+
+    @Test
+    void shouldIncreaseQualityAgedBrie() {
+        Item item = new Item("Aged Brie", 10, 10);
+        GildedRose gildedRose = new GildedRose( new Item[]{item} );
+        gildedRose.updateQuality();
+        assertThat(item.quality).isEqualTo(11);
+    }
 }
