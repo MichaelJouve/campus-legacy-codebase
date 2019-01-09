@@ -71,4 +71,12 @@ public class GildedRoseTest {
         assertThat(item.quality).isEqualTo(30);
         assertThat(item.sellIn).isEqualTo(15);
     }
+
+    @Test
+    void backstageShouldIncreaseByOne() {
+        Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 15, 30);
+        GildedRose gildedRose = new GildedRose( new Item[]{item} );
+        gildedRose.updateQuality();
+        assertThat(item.quality).isEqualTo(31);
+    }
 }
