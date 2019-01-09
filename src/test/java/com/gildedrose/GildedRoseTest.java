@@ -15,6 +15,13 @@ public class GildedRoseTest {
         assertThat(item.quality).isEqualTo(9);
     }
 
+    @Test
+    void shouldDecreaseItemSellInByOne() {
+        Item item = new Item("toto", 5, 10);
+        GildedRose gildedRose = new GildedRose( new Item[]{item} );
+        gildedRose.updateQuality();
+        assertThat(item.sellIn).isEqualTo(4);
+    }
 
 
 }
