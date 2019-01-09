@@ -62,4 +62,13 @@ public class GildedRoseTest {
         gildedRose.updateQuality();
         assertThat(item.quality).isEqualTo(32);
     }
+
+    @Test
+    void sulfuraShouldNeverChange() {
+        Item item = new Item("Sulfuras, Hand of Ragnaros", 15, 30);
+        GildedRose gildedRose = new GildedRose( new Item[]{item} );
+        gildedRose.updateQuality();
+        assertThat(item.quality).isEqualTo(30);
+        assertThat(item.sellIn).isEqualTo(15);
+    }
 }

@@ -31,5 +31,19 @@ public class Item {
         }
     }
 
+    public void defaultMethod() {
+        this.decreaseQuality();
+        if (this.sellIn < 0) {
+            this.decreaseQuality();
+        }
+    }
+
+    public void agedBrieMethod() {
+        this.increaseQuality();
+        if (this.sellIn < 0) {
+            this.increaseQuality();
+        }
+    }
+
 
 }

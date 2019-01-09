@@ -13,18 +13,17 @@ public class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
+            coreWork(item);
+        }
+    }
+
+    private void coreWork(Item item) {
+        if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
             item.sellIn--;
-            if (item.name.equals("Aged Brie")){
-                item.increaseQuality();
-                if (item.sellIn < 0) {
-                    item.increaseQuality();
-                }
-            }
-            else {
-                item.decreaseQuality();
-                if (item.sellIn < 0) {
-                    item.decreaseQuality();
-                }
+            if (item.name.equals("Aged Brie")) {
+                item.agedBrieMethod();
+            } else {
+                item.defaultMethod();
             }
         }
     }
