@@ -103,4 +103,14 @@ public class GildedRoseTest {
         gildedRose.updateQuality();
         assertThat(item.quality).isEqualTo(0);
     }
+
+    @Test
+    void conjuredQualityDecreaseTwiceAsFastAsDefault() {
+        Item item = new Item("Conjured Mana Cake", 10, 30);
+        Item item2 = new Item("Conjured Mana Cake", 0, 30);
+        GildedRose gildedRose = new GildedRose( new Item[]{item, item2} );
+        gildedRose.updateQuality();
+        assertThat(item.quality).isEqualTo(28);
+        assertThat(item2.quality).isEqualTo(26);
+    }
 }

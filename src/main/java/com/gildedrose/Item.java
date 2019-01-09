@@ -59,5 +59,8 @@ public class Item {
         }
     }
 
-
+    public void conjuredMethod() {
+        this.defaultMethod();
+        this.defaultMethod();
+    }
 }
