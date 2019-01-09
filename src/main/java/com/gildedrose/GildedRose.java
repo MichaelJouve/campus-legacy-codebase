@@ -21,19 +21,20 @@ public class GildedRose {
     }
 
     private void coreWork(Item item) {
-        if (!item.name.equals(SULFURAS)) {
-            item.sellIn--;
+        if (item.name.equals(SULFURAS)) {
+            return;
+        }
+        item.sellIn--;
 
-            switch (item.name){
-                case AGED_BRIE:
-                    item.agedBrieMethod();
-                    break;
-                case BACKSTAGE:
-                    item.increaseQuality();
-                    break;
-                default:
-                    item.defaultMethod();
-            }
+        switch (item.name){
+            case AGED_BRIE:
+                item.agedBrieMethod();
+                break;
+            case BACKSTAGE:
+                item.backstageMethod();
+                break;
+            default:
+                item.defaultMethod();
         }
     }
 }
