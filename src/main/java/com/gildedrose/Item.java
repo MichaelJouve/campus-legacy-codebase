@@ -46,6 +46,10 @@ public class Item {
     }
 
     public void backstageMethod() {
+        if (this.sellIn < 0 ) {
+            this.quality = 0;
+            return;
+        }
         this.increaseQuality();
         if (this.sellIn < 10) {
             this.increaseQuality();
