@@ -11,4 +11,10 @@ public class GildedRose {
         return items;
     }
 
+    public void updateQuality() {
+        for (Item item : items) {
+            item.quality--;
+        }
+    }
 }
+
