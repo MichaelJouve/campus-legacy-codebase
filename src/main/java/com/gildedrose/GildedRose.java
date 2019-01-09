@@ -16,6 +16,9 @@ public class GildedRose {
             item.sellIn--;
             if (item.name.equals("Aged Brie")){
                 item.increaseQuality();
+                if (item.sellIn < 0) {
+                    item.increaseQuality();
+                }
             }
             else {
                 item.decreaseQuality();
