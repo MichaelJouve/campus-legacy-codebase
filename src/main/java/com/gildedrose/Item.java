@@ -50,6 +50,9 @@ public class Item {
         if (this.sellIn < 10) {
             this.increaseQuality();
         }
+        if (this.sellIn < 5) {
+            this.increaseQuality();
+        }
     }
 
 
