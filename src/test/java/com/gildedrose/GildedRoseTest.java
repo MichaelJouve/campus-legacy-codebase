@@ -31,4 +31,11 @@ public class GildedRoseTest {
         assertThat(item.quality).isEqualTo(0);
     }
 
+    @Test
+    void qualityShouldDecreaseDoubleWhenExpired() {
+        Item item = new Item("toto", -1, 10);
+        GildedRose gildedRose = new GildedRose( new Item[]{item} );
+        gildedRose.updateQuality();
+        assertThat(item.quality).isEqualTo(8);
+    }
 }

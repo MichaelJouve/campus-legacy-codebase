@@ -15,7 +15,9 @@ public class GildedRose {
         for (Item item : items) {
             item.decreaseQuality();
             item.sellIn--;
+            if (item.sellIn < 0) {
+                item.decreaseQuality();
+            }
         }
     }
 }
-
