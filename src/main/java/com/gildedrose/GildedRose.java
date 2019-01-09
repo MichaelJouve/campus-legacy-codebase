@@ -5,6 +5,7 @@ public class GildedRose {
     public static final String BACKSTAGE = "Backstage passes to a TAFKAL80ETC concert";
     public static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
     public static final String CONJURED = "Conjured Mana Cake";
+    public static final String WINE = "Aging Red Wine";
     Item[] items;
 
     public GildedRose(Item[] items) {
@@ -36,6 +37,8 @@ public class GildedRose {
                 break;
             case CONJURED:
                 item.conjuredMethod();
+                break;
+            case WINE:
                 break;
             default:
                 item.defaultMethod();
