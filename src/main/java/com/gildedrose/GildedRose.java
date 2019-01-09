@@ -39,6 +39,7 @@ public class GildedRose {
                 item.conjuredMethod();
                 break;
             case WINE:
+                item.agingRedWineMethod();
                 break;
             default:
                 item.defaultMethod();
