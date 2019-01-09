@@ -13,7 +13,7 @@ public class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            item.quality--;
+            item.decreaseQuality();
             item.sellIn--;
         }
     }

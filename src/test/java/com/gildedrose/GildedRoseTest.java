@@ -23,5 +23,12 @@ public class GildedRoseTest {
         assertThat(item.sellIn).isEqualTo(4);
     }
 
+    @Test
+    void qualityShouldNotBeNegative() {
+        Item item = new Item("toto", 5, 0);
+        GildedRose gildedRose = new GildedRose( new Item[]{item} );
+        gildedRose.updateQuality();
+        assertThat(item.quality).isEqualTo(0);
+    }
 
 }

@@ -19,5 +19,11 @@ public class Item {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 
+    public void decreaseQuality() {
+        if  (this.quality > 0) {
+            this.quality--;
+        }
+    }
+
 
 }
