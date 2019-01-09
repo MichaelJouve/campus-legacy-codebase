@@ -129,4 +129,12 @@ public class GildedRoseTest {
         gildedRose.updateQuality();
         assertThat(item.quality).isEqualTo(31);
     }
+
+    @Test
+    void agingRedWineQualityShouldDecreaseByOneWhenSellInBelowMinorOneHundred(){
+        Item item = new Item("Aging Red Wine", -100, 30);
+        GildedRose gildedRose = new GildedRose( new Item[]{item} );
+        gildedRose.updateQuality();
+        assertThat(item.quality).isEqualTo(29);
+    }
 }
