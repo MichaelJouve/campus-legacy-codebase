@@ -46,4 +46,12 @@ public class GildedRoseTest {
         gildedRose.updateQuality();
         assertThat(item.quality).isEqualTo(11);
     }
+
+    @Test
+    void qualityShouldNeverBeMoreThanFifty() {
+        Item item = new Item("Aged Brie", 10, 50);
+        GildedRose gildedRose = new GildedRose( new Item[]{item} );
+        gildedRose.updateQuality();
+        assertThat(item.quality).isEqualTo(50);
+    }
 }

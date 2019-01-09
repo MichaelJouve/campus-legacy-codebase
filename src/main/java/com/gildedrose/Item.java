@@ -25,5 +25,11 @@ public class Item {
         }
     }
 
+    public void increaseQuality() {
+        if (this.quality < 50) {
+            this.quality++;
+        }
+    }
+
 
 }
