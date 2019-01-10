@@ -1,10 +1,13 @@
 package com.gildedrose;
 
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class Item {
 
+    public static final String CONJURED = "Conjured Mana Cake";
     public String name;
 
     public int sellIn;
@@ -42,13 +45,18 @@ public class Item {
      * @return
      */
     public void buildAttributes( Item item) {
-        switch (item.name) {
+        String nameConst = item.name;
+        if (nameConst.startsWith("Conjured")){
+            nameConst = CONJURED;
+        }
+        switch (nameConst) {
             case "Aged Brie": agedBrieSetAttributes(item); break;
             case "Sulfuras, Hand of Ragnaros": sulfurasSetAttributes(item);
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
                 backstageSetAttributes(item); break;
-            case "Conjured Mana Cake": conjuredSetAttributes(item); break;
+            case CONJURED: conjuredSetAttributes(item); break;
+            case "Aging Red Wine": wineSetAttributes(item); break;
         }
     }
 
@@ -72,7 +80,7 @@ public class Item {
             item.quality = 0;
         }
         // reduce at zero the quality if atSellInZero is true
-        if (item.atSellInZero && item.sellIn < 0) {
+        if (item.atSellInZero && item.sellIn <= 0) {
             item.quality = 0;
         }
     }
@@ -97,10 +105,10 @@ public class Item {
         item.increaseQuality = 1;
         item.reduiceQuality = 0;
         item.reduiceSellIn = -1;
-        item.dateQuality.put(0,1);
+        item.dateQuality.put(-1,1);
     }
     private void sulfurasSetAttributes(Item item){
-        item.increaseQuality = 1;
+        item.increaseQuality = 0;
         item.reduiceQuality = 0;
         item.reduiceSellIn = 0;
         item.dateQuality.clear();
@@ -122,4 +130,11 @@ public class Item {
         item.dateQuality.put(0,-2);
     }
 
+    private void wineSetAttributes(Item item) {
+        item.increaseQuality = 0;
+        item.reduiceQuality = 0;
+        item.reduiceSellIn = -1;
+        item.dateQuality.put(0,1);
+        item.dateQuality.put(-100,-1);
+    }
 }
