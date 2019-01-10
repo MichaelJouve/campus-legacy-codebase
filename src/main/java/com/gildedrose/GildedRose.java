@@ -38,6 +38,11 @@ public class GildedRose {
         if (item.name.startsWith("Conjured")) {
             name = CONJURED;
         }
+        Product product = buildProduct(item, name);
+        product.updateItem();
+    }
+
+    private Product buildProduct(Item item, String name) {
         Product product;
         switch (name){
             case AGED_BRIE:
@@ -55,7 +60,7 @@ public class GildedRose {
             default:
                 product = new DefaultProduct(item);
         }
-        product.updateItem();
+        return product;
     }
 
     private void generateLogs(int oldQuality, int oldSellIn, Item item) {
