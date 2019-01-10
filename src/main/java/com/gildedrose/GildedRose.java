@@ -34,12 +34,16 @@ public class GildedRose {
             return;
         }
         item.sellIn--;
-        String name = item.name;
-        if (item.name.startsWith("Conjured")) {
-            name = CONJURED;
-        }
+        String name = defineName(item);
         Product product = buildProduct(item, name);
         product.updateItem();
+    }
+
+    private String defineName(Item item) {
+        if (item.name.startsWith("Conjured")) {
+            return CONJURED;
+        }
+        return item.name;
     }
 
     private Product buildProduct(Item item, String name) {
