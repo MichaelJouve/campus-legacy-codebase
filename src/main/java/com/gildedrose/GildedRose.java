@@ -34,28 +34,28 @@ public class GildedRose {
             return;
         }
         item.sellIn--;
-
         String name = item.name;
         if (item.name.startsWith("Conjured")) {
             name = CONJURED;
         }
-
+        Product product;
         switch (name){
             case AGED_BRIE:
-                item.agedBrieMethod();
+                product = new Brie(item);
                 break;
             case BACKSTAGE:
-                item.backstageMethod();
+                product = new Backstage(item);
                 break;
             case CONJURED:
-                item.conjuredMethod();
+                product = new Conjured(item);
                 break;
             case WINE:
-                item.agingRedWineMethod();
+                product = new Wine(item);
                 break;
             default:
-                item.defaultMethod();
+                product = new DefaultProduct(item);
         }
+        product.updateItem();
     }
 
     private void generateLogs(int oldQuality, int oldSellIn, Item item) {
