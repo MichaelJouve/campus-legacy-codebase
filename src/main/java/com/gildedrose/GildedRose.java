@@ -43,24 +43,18 @@ public class GildedRose {
     }
 
     private Product buildProduct(Item item, String name) {
-        Product product;
         switch (name){
             case AGED_BRIE:
-                product = new Brie(item);
-                break;
+                return new Brie(item);
             case BACKSTAGE:
-                product = new Backstage(item);
-                break;
+                return new Backstage(item);
             case CONJURED:
-                product = new Conjured(item);
-                break;
+                return new Conjured(item);
             case WINE:
-                product = new Wine(item);
-                break;
+                return new Wine(item);
             default:
-                product = new DefaultProduct(item);
+                return new DefaultProduct(item);
         }
-        return product;
     }
 
     private void generateLogs(int oldQuality, int oldSellIn, Item item) {
